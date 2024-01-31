@@ -5,7 +5,7 @@
   
 		<script src="data/quota_data.js"></script>
     <script src="data/invalid_cases.js"></script>
-		<script src="data/DOH_departures_flight_list.js"></script>
+		<script src="data/CEB_departures_flight_list.js"></script>
 
     <script src="scripts/PrepareData.js"></script>
 		<script src="scripts/CalculateData.js"></script>
@@ -68,7 +68,7 @@
         var data = new google.visualization.DataTable();
 
         data.addColumn('string', 'Time');
-        //data.addColumn('string', 'Terminal');
+        data.addColumn('string', 'Terminal');
         //data.addColumn('string', 'Gate');
         data.addColumn('string', 'Flight');
         data.addColumn('string', 'To');
@@ -86,7 +86,7 @@
           var row = daily_plan_data[i];
             { 
                 data.addRows([[row.Date_Time,
-                //row.TER, 
+                row.int_dom, 
                 //row.Gate, 
                 row.Flight, row.DestName, 
                 //row.doop, 
@@ -133,10 +133,10 @@
 
         //create fiter
         var gate_filter_options = {
-          'filterColumnLabel': 'Flight',
+          'filterColumnLabel': 'Terminal',
           "ui": {"label": "", 
                 "labelStacking": 'horizotal',
-                "caption": "Filter by Flight",
+                "caption": "Filter by Terminal",
                 }
         };
         
@@ -163,8 +163,8 @@
         var view = new google.visualization.DataView(data);
         view.hideColumns([priority_col, priority_col-1]); //hide priority one
 
-        //document.getElementById("terminal_filter_div").style.display = "none";
-        document.getElementById("gate_filter_div").style.display = "none";
+        document.getElementById("terminal_filter_div").style.display = "none";
+        //document.getElementById("gate_filter_div").style.display = "none";
 
         dashboard.draw(view);
 

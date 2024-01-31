@@ -6,7 +6,7 @@
   
 		<script src="data/quota_data.js"></script>
     <script src="data/invalid_cases.js"></script>
-    <script src="data/DOH_departures_flight_list.js"></script>
+    <script src="data/CEB_departures_flight_list.js"></script>
 
     <script src="scripts/PrepareData.js"></script>
 		<script src="scripts/CalculateData.js"></script>
@@ -61,7 +61,7 @@
         //define header
         data.addColumn('string', 'Airline-Dest');
         data.addColumn('string', 'Dest');
-        data.addColumn('string', 'Int./Dom.');
+        data.addColumn('string', 'Terminal');
         data.addColumn('number', 'Remaining Flights');                
         data.addColumn('number', 'Quota');
         data.addColumn('number', 'Completed');
@@ -94,7 +94,11 @@
           'controlType': 'CategoryFilter',
           'containerId': 'filter_div',
           'options': {
-            'filterColumnLabel': 'Int./Dom.'
+            'filterColumnLabel': 'Terminal',
+            "ui": {"label": "", 
+                "labelStacking": 'horizotal',
+                "caption": "Filter by Destination",
+                }
           }
         });
   
@@ -135,8 +139,7 @@
     <div class="selected_period">
       <label for="selected_period">Data collection period:</label>
       <select id="selected_period" onchange="drawTable()">
-        <option value="current-period">current month
-        <option value="2024-02">02-2024                
+        <option value="current-period">Feb-Apr 2024
       </select>
     </div>
     <br>

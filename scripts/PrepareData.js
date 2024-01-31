@@ -80,7 +80,7 @@ function getInterviewMonth(interviewEndDate)
 
 
 function notDeparted(flight_time) {
-  var current_time = new Date().toLocaleString('en-US', { timeZone:  'Europe/Vienna', hour12: false});
+  var current_time = new Date().toLocaleString('en-US', { timeZone:  'Asia/Manila', hour12: false});
   //15:13:27
   var current_time_value  = current_time.substring(current_time.length-8,current_time.length-6) * 60;
   current_time_value += current_time.substring(current_time.length-5,current_time.length-3)*1;
@@ -111,7 +111,7 @@ function isvalid_id(id)
 function prepareInterviewData() {
   var quota_data_temp = JSON.parse(quota_info);
   var interview_data_full  = JSON.parse(interview_statistics);
-  var flight_list_full  = JSON.parse(DOH_Departures_Flight_List_Raw);
+  var flight_list_full  = JSON.parse(CEB_Departures_Flight_List_Raw);
 
   initCurrentTimeVars();		
   
@@ -204,6 +204,6 @@ function prepareInterviewData() {
     }
   }
    //console.log("this_month_flight_list: ", this_month_flight_list);
-   //console.log("today_flight_list: ", today_flight_list);
-   //console.log("daily_plan_data: ", daily_plan_data);
+   console.log("today_flight_list: ", today_flight_list);
+   console.log("daily_plan_data: ", daily_plan_data);
 }
